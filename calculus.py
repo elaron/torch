@@ -12,9 +12,15 @@ def numerical_lim(f, x, h):
     return (f(x + h) - f(x)) / h
 
 
+def use_svg_display():  # @save
+    """使用svg格式在Jupyter中显示绘图"""
+    backend_inline.set_matplotlib_formats('svg')
+
+
 def set_figsize(figsize=(3.5, 2.5)):  # @save
     """设置matplotlib的图表大小"""
-    # use_svg_display()
+    use_svg_display()
+    d2l.plt.rcParams['figure.figsize'] = figsize
 
 
 def set_axes(axes, xlable, ylabel, xlim, ylim, xscale, yscale, legend):
