@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
     # 训练过程
     lr = 0.03
-    num_epochs = 3
+    num_epochs = 10
     net = linreg
     loss = squared_loss
 
@@ -77,3 +77,6 @@ if __name__ == '__main__':
         with torch.no_grad():
             train_l = loss(net(features, w, b), labels)
             print(f'epoch {epoch + 1}, loss {float(train_l.mean()):f}')
+
+    print(f'w的估计误差:{true_w - w.reshape(true_w.shape)}')
+    print(f'b的估计误差:{true_b - b}')
